@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 发送请求时设置Content-Type -->
+    <form action="/form" method="post" id="form" enctype="application/x-www-form-urlencoded">
+        <label for="username">用户名：</label>
+        <input type="text" name="username" id="username">
+
+        <label for="password">密码：</label>
+        <input type="password" name="password" id="password">
+
+        <input type="file" name="file">
+
+        <input type="submit">
+    </form>
+    <script>
+        /* 有id时可以直接使用ID名找到该元素，注册监听事件 */
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var formData = new FormData(form);
+            /* 使用ajax方式发送到服务端 */
+            fetch('/form', {
+                method: 'POST',
+                body: formData
+            })
+        });
+    </script>
+</body>
+</html>
