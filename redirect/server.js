@@ -5,7 +5,7 @@ http.createServer(function(request, response) {
 
     if(request.url === '/') {
         /* 设置响应头
-        *  302 临时重定向（跳转到某地址）
+        *  302 临时移动（跳转到某地址）
         *  301 永久重定向
         * */
         response.writeHead(302, {
